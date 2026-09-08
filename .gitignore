@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Runtime noise (server/proxy/worker stdout -- not analysis data;
+# the actual measured results are the tracked CSV/JSON files in results/)
+results/*.log
+nohup.out
+*.pid
+
+# Local env files
+.env
+
+# Claude Code session/config data -- not part of the research project.
+# (Lives at the parent directory level today, not inside this repo -- this
+# entry is a guard in case that ever changes, e.g. git init one level up.)
+.claude/
+
+# Not pushed yet: draft vendor disclosure email, kept local until it's actually
+# sent (see its own header note and PAPER_DRAFT.md's Ethics section).
+docs/DISCLOSURE_DRAFT.md
+
+# Trained/placeholder LoRA weights: not needed for the artifact-availability
+# commitment in PAPER_DRAFT.md §7 (reproducing the *statistical analysis* from
+# the tracked CSV/JSON in results/, not re-running the GPU experiments), and
+# 440MB is not worth the Git LFS quota until that's actually needed. Configs
+# (adapter_config.json) are still tracked -- only the weight files are excluded.
+adapters/**/adapter_model.safetensors
