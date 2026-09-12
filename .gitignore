@@ -12,8 +12,11 @@ desktop.ini
 *.swp
 
 # Runtime noise (server/proxy/worker stdout -- not analysis data;
-# the actual measured results are the tracked CSV/JSON files in results/)
-results/*.log
+# the actual measured results are the tracked CSV/JSON files in results/).
+# **/*.log (not just results/*.log) so a nested run directory's manifest/noise
+# logs are caught too, not just top-level ones -- results/*.log alone missed
+# results/<run>/manifest.log, which is the same kind of runtime noise.
+results/**/*.log
 nohup.out
 *.pid
 
