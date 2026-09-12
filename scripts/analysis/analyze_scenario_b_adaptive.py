@@ -28,7 +28,7 @@ def wilson_ci(k, n, z=1.96):
     adj = z * np.sqrt(p*(1-p)/n + z**2/(4*n**2))
     return (centre - adj) / denom, (centre + adj) / denom
 
-df = pd.read_csv("/home/researcher/native_test/results/scenario_b_adaptive_w6_raw.csv")
+df = pd.read_csv("../../results/scenario_b_adaptive_w6_raw.csv")
 print(f"n={len(df)}")
 print(df.groupby("ground_truth")[["target_latency_ms", "canary_latency_ms", "diff_ms"]].agg(["mean", "std"]).round(2))
 print()

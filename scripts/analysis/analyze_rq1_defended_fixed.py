@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 
-df = pd.read_csv("../../results/rq1_defended_raw.csv")
+df = pd.read_csv("../../results/superseded/rq1_defended_raw.csv")
 print("=== Defended (FIXED absolute-deadline proxy) latency by state ===")
 print(df.groupby("state")["latency_ms"].agg(["mean", "std", "min", "max"]).round(3))
 

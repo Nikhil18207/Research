@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 
-df = pd.read_csv("/home/researcher/native_test/results/proxy_diag.csv")
+df = pd.read_csv("../../results/proxy_diag.csv")
 print(f"n={len(df)} logged requests")
 print(df[["t_true_ms", "t_release_ms", "overshoot_ms", "send_overhead_ms", "spin_iters"]].describe())
 

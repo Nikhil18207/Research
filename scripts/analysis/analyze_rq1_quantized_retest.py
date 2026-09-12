@@ -9,7 +9,7 @@ import numpy as np
 from sklearn.metrics import roc_auc_score
 from scipy import stats
 
-df = pd.read_csv("/home/researcher/native_test/results/rq1_quantized_native_retest_raw.csv")
+df = pd.read_csv("../../results/rq1_quantized_native_retest_raw.csv")
 print("=== per-state latency summary ===")
 print(df.groupby("state")["latency_ms"].agg(["mean", "std", "min", "max"]).round(2))
 
@@ -48,7 +48,7 @@ for a, b in pairs:
           f"boot_CI=[{b_lo:.3f},{b_hi:.3f}]  MWU p={p:.4f}")
 
 print("\n=== diag log: overshoot / spin_iters stability check ===")
-diag = pd.read_csv("/home/researcher/native_test/results/proxy_quantized_diag.csv")
+diag = pd.read_csv("../../results/proxy_quantized_diag.csv")
 print(diag[["t_true_ms", "t_release_ms", "overshoot_ms", "send_overhead_ms", "spin_iters"]].describe().round(3))
 print(f"\nmax overshoot_ms: {diag['overshoot_ms'].max():.3f}")
 print(f"trials with overshoot > 5ms: {(diag['overshoot_ms'].abs() > 5).sum()} / {len(diag)}")

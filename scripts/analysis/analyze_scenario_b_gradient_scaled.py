@@ -28,12 +28,12 @@ def bootstrap_auc_ci(y, x, n_boot=10000, seed=0):
     return np.percentile(aucs, [2.5, 97.5])
 
 conditions = ["w0", "w1", "w2", "w3", "w4", "w5", "w6", "w6_queueonly"]
-base = "/home/researcher/native_test/results/scenario_b_gradient_scaled"
+base = "../../results/scenario_b_gradient_scaled"
 
 print(f"{'condition':14s} {'n':>4s} {'idle_mean':>10s} {'active_mean':>12s} {'AUC':>8s} {'HM_CI':>18s} {'boot_CI':>18s} {'MWU_p':>10s}")
 results = {}
 for c in conditions:
-    df = pd.read_csv(f"{base}/{c}_raw.csv")
+    df = pd.read_csv(f"{base}_{c}_raw.csv")
     y = (df["ground_truth"] == "active").astype(int)
     x = df["self_probe_latency_ms"]
     auc = roc_auc_score(y, x)
