@@ -38,3 +38,4 @@ docs/DISCLOSURE_DRAFT.md
 # 440MB is not worth the Git LFS quota until that's actually needed. Configs
 # (adapter_config.json) are still tracked -- only the weight files are excluded.
 adapters/**/adapter_model.safetensors
+docs/PROJECT.md
